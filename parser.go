@@ -4,7 +4,7 @@ import (
 	"strings"
 )
 
-func ParseLine(row []string, seperator string) []string {
+func ParseLine(row []string, separator string) []string {
 	var findComma = 0
 	var substr string
 	var realSplit []string
@@ -22,7 +22,7 @@ func ParseLine(row []string, seperator string) []string {
 			}
 
 			if findComma == 1 {
-				substr = substr + element + seperator
+				substr = substr + element + separator
 			}  else {
 				substr = substr + element
 			}
