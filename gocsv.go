@@ -49,7 +49,7 @@ func (csv *CSV) LoadCSV(filePath string, separator string, startHeader int) erro
 			rowidx ++
 			continue
 		} else {
-			tempRow := ParseLine(strings.Split(scanner.Text(), ","), ",")
+			tempRow := ParseLine(strings.Split(scanner.Text(), separator), separator)
 			var tempRecord Record
 			for i := 0; i < csv.HeaderNum; i++ {
 				cell := make(map[string]string)
