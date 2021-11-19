@@ -28,7 +28,7 @@ type CSV struct {
 }
 
 // LoadCSV
-func (csv *CSV) LoadCSV(filePath string, separator string) error {
+func (csv *CSV) LoadCSV(filePath string, separator string, startHeader int) error {
 	file, err := os.Open(filePath)
 	if err != nil {
 		return err
@@ -38,12 +38,16 @@ func (csv *CSV) LoadCSV(filePath string, separator string) error {
 	idx := 0
 	rowidx := 0
 	for scanner.Scan() {
-		if idx == 0 {
+		if rowidx < startHeader {
+			rowidx++
+			continue
+		} else if rowidx == startHeader {
 			csv.Header = ParseLine(strings.Split(scanner.Text(),
 				separator),
 				separator)
 			csv.HeaderNum = len(csv.Header)
-			idx++
+			rowidx ++
+			continue
 		} else {
 			tempRow := ParseLine(strings.Split(scanner.Text(), ","), ",")
 			var tempRecord Record
