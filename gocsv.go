@@ -62,7 +62,7 @@ func (csv *CSV) LoadCSV(filePath string, separator string, startHeader int) erro
 			rowidx++
 		}
 	}
-	csv.RowNum = idx
+	csv.RowNum = rowidx - (startHeader + 1)
 	csv.index = INVALID_INT_VAL
 
 	return nil
