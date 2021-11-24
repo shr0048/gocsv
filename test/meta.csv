@@ -1,0 +1,21 @@
+Format version	Start date	End date	Sender	Recipient	Disclaimer
+5	2021-09-01	2021-09-30	Spotify	IOK	Confidential
+Country	Product	URI	UPC	EAN	ISRC	Track name	Artist name	Composer name	Album name	Quantity	Label	Payable invoice	Invoice currency	Payable EUR	Payable USD
+CZ	FAM6	spotify:track:1l8q91idpwXQN3LROJsJcL	8809795753694		QZF452059384	Where R U	BLACK ON, 은우	BLACK ON	X	1	T-ONE	0.001500	EUR	0.001500	0.001765
+TW	FAM6	spotify:track:1EUEzrSq4iofIgTyFiExvE	8809784678465		QZF452013002	추억의 책장을 넘기면	Lee Sun Hee	N/A	추억의 책장을 넘기면	10	예당엔터테인먼트	0.011305	EUR	0.011305	0.013298
+ID	A	spotify:track:4knEpGr8w3h3cIYIcZ6IrF	191669000040		KRA340921172	이별	Park Hwayobi	N/A	Across The Romantic Bridge	2	신촌뮤직	0.000067	EUR	0.000067	0.000079
+RU	TRIAL-6M	spotify:track:2pbWqipwnoZUkSwTjzhyhd	8809829757070		KSA012116519	Gnossienne No.1	Erik Satie	Erik Satie	The Devil Judge (Original Television Soundtrack)	16	뮤직앤뉴, 스튜디오앤뉴	0.009757	EUR	0.009757	0.011477
+TW	P	spotify:track:6j3ZN9GHSDXKZwXgOl2Uew	8809795743329		QZF452087600	20 22	DNYDK	DNYDK, Yerin	Waves Aren't Afraid of Falling	1	LVRSZ RECORDS	0.002468	EUR	0.002468	0.002903
+DE	PDIB	spotify:track:6NZVUbLnb1TBmGUY8i6KZl	8806197928293		KRA341525966	그대여	MBLAQ	N/A	BLAQ Style	2	오감엔터테인먼트	0.008026	EUR	0.008026	0.009441
+CH	PDIB	spotify:track:7rWeHBDJWGTXq2idhe8QXw	8809717483968		KRMIM2012791	Light	KEUMJO	RUNY, IVeR	Where Your Eyes Linger (Original Television Soundtrack)	1	W-STORY	0.005024	EUR	0.005024	0.005910
+ES	A	spotify:track:1bPYK5i4nIwVHJrUqYOETt	8809703431638		KRZ291937530	One Day	하눌	N/A	Lofi Piano Vol. 1	1	코즈사운드	0.000312	EUR	0.000312	0.000367
+PE	A	spotify:track:6ZiUqGTo40Xl0DqePb3eZd	8806197928323		KRA341525986	Oh Yeah	MBLAQ	N/A	JUST BLAQ	815	오감엔터테인먼트	0.062330	EUR	0.062330	0.073321
+SG	P	spotify:track:1riGpneR8JZcrlxlFUfzRx	8809717507169		KRMIM2027382	don't	MIHO	N/A	lofi moods	1	DEEPWATER Label	0.003647	EUR	0.003647	0.004290
+ID	DUO	spotify:track:3VKZHSMps6O2ecPzxqUQul	8809784722922		KRA341504290	일학년 일반	Sung Si Kyung, Kim Jin Pyo	Lee Hyun Seung, 김현아, Seo Jae Ha	4집 - 다시 꿈꾸고 싶다	2	더늠이엔티	0.002126	EUR	0.002126	0.002500
+KR	PDIB	spotify:track:6GzepHtNQVeLNkqkiUq2ky	8809784768326		KRMIM2031753	Be my love - Instrumental	RUNY	RUNY, 박정준, 심규태	Wish You (Original Television Soundtrack)	1	㈜이모션스튜디오	0.004983	USD	0.004236	0.004983
+PT	FAM6	spotify:track:6IYQ56rZffKGie5P3XhNUD	8809681184243		QZEKE1910901	사랑아 (노래 9단 흥부자댁)	Sohyang	N/A	Mask Singer 106th (Live Version)	3	(주)블렌딩	0.005176	EUR	0.005176	0.006089
+CA	WINBACKQ321	spotify:track:3AZQAj5oaQAG0SZog9Z60H	8804775077906		KRA381700201	Must Be The Money	DINDIN	N/A	김과장 (Original Television Soundtrack) Part. 1	1	더그루브컴퍼니	0.002197	EUR	0.002197	0.002584
+TR	P	spotify:track:3rlME59XNMCkJnFyfxUkjF	8809269501462		KRA531119007	Like a Butterfly	Ibadi	N/A	Voyage	2	플럭서스1	0.001948	EUR	0.001948	0.002292
+MY	FAM6	spotify:track:3Fx1bDTkVTpcTzIOvW7wmi	8809717436049		QZEKE1931584	Starry Night	Moonbit	Moonbit, YUMIN, 길유	끝나지 않는 엔딩	7	INHEART MUSIC	0.004951	EUR	0.004951	0.005823
+ID	FAM6	spotify:track:0G9oDkWJJOMZyaTCNby7JI	8809795703095		KSA012145996	Secreto - Instrumental	YEZI	박슬기	Secreto	4	제이지스타	0.002133	EUR	0.002133	0.002509
+JP	A	spotify:track:78ATT7hJDlrffZTLxzelrw	8809717500528		QZEKE2016793	Opening Title (from '파라다이스") - Intro	T-Max	N/A	꽃보다 남자 (Original Television Soundtrack)	564	다해이엔티	0.113550	EUR	0.113550	0.133574

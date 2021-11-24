@@ -17,6 +17,7 @@ type Record []Cell
 type RecordMapper func(value Record) Record
 type RecordFilter func(value Record) bool
 type RecordReducer func(a, b interface{}) interface{}
+type ParseCSV func(string, string) []string
 
 // CSV
 type CSV struct {
@@ -27,6 +28,20 @@ type CSV struct {
 	Records   []Record
 }
 
+func SetParser(separator string) ParseCSV {
+	if separator == "," {
+		return func(r, s string) []string {
+			res := ParseLine(strings.Split(r, s), s)
+			return res
+		}
+	} else {
+		return func(r, s string) []string {
+			res := strings.Split(r, s)
+			return res
+		}
+	}
+}
+
 // LoadCSV
 func (csv *CSV) LoadCSV(filePath string, separator string, startHeader int) error {
 	file, err := os.Open(filePath)
@@ -35,28 +50,29 @@ func (csv *CSV) LoadCSV(filePath string, separator string, startHeader int) erro
 	}
 	scanner := bufio.NewScanner(file)
 	scanner.Split(bufio.ScanLines)
-	idx := 0
+
 	rowidx := 0
+
+	myParser := SetParser(separator)
+
 	for scanner.Scan() {
 		if rowidx < startHeader {
 			rowidx++
 			continue
 		} else if rowidx == startHeader {
-			csv.Header = ParseLine(strings.Split(scanner.Text(),
-				separator),
-				separator)
+			csv.Header = myParser(scanner.Text(), separator)
 			csv.HeaderNum = len(csv.Header)
 			rowidx ++
 			continue
+
 		} else {
-			tempRow := ParseLine(strings.Split(scanner.Text(), separator), separator)
+			tempRow := myParser(scanner.Text(), separator)
 			var tempRecord Record
 			for i := 0; i < csv.HeaderNum; i++ {
 				cell := make(map[string]string)
 				cell[csv.Header[i]] = tempRow[i]
 
 				tempRecord = append(tempRecord, cell)
-				idx++
 			}
 			csv.Records = append(csv.Records, tempRecord)
 			rowidx++
