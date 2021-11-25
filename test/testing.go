@@ -71,6 +71,5 @@ func main() {
 	count := filtered.RowNum
 	avg := filtered.Reduce(float64(0), totalAge)
 
-	fmt.Printf("Get average age over 21: %f \n", avg.(float64) / float64(count))
+	fmt.Printf("Get average age over 21: %f \n", avg.(float64)/float64(count))
 }
-

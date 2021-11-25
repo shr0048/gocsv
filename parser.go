@@ -12,18 +12,16 @@ func ParseLine(row []string, separator string) []string {
 	for _, element := range row {
 		comma := strings.Contains(element, "\"")
 		if comma == true || findComma != 0 {
-			//fmt.Println("Find Comma: ", element)
-			if comma == true && strings.Count(element, "\"") % 2 == 1 {
-				//fmt.Println("not complete comma")
+			if comma == true && strings.Count(element, "\"")%2 == 1 {
 				findComma++
-			} else if comma == true && strings.Count(element, "\"") % 2 == 0 && findComma != 1 {
+			} else if comma == true && strings.Count(element, "\"")%2 == 0 && findComma != 1 {
 				realSplit = append(realSplit, element)
 				continue
 			}
 
 			if findComma == 1 {
 				substr = substr + element + separator
-			}  else {
+			} else {
 				substr = substr + element
 			}
 

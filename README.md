@@ -74,7 +74,7 @@ func main() {
 	fmt.Println("##### Example of Using Collection functions #####")
 
 	myCsv := gocsv.CSV{}
-	err := myCsv.LoadCSV("./mlb_players.csv", ", ")
+	err := myCsv.LoadCSV("./mlb_players.csv", ", ", 0)
 	if err != nil {
 		fmt.Print("Load error")
 	}
@@ -94,7 +94,7 @@ func main() {
 	count := filtered.RowNum
 	avg := filtered.Reduce(float64(0), totalAge)
 
-	fmt.Printf("Get average age over 21: %f \n", avg.(float64) / float64(count))
+	fmt.Printf("Get average age over 21: %f \n", avg.(float64)/float64(count))
 }
 ```
 

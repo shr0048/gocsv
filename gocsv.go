@@ -1,4 +1,9 @@
+//MIT License
+//Copyright (c) 2020 HeraldSim
+
 package gocsv
+
+// CSV data converter as Go object type to support FP.
 
 import (
 	"bufio"
@@ -6,21 +11,17 @@ import (
 	"strings"
 )
 
-const INVALID_INT_VAL = -1
+const InvalidIntVal = -1
 
-// Cell
+// Cell represents a single cell in the csv file.
 type Cell map[string]string
 
-// Record
+// Record is a row of csv file.
 type Record []Cell
 
-type RecordMapper func(value Record) Record
-type RecordFilter func(value Record) bool
-type RecordReducer func(a, b interface{}) interface{}
-type ParseCSV func(string, string) []string
-
-// CSV
+// CSV is converted data of input csv file
 type CSV struct {
+	// index for iteration of Records
 	index     int
 	HeaderNum int
 	RowNum    int
@@ -28,6 +29,19 @@ type CSV struct {
 	Records   []Record
 }
 
+// RecordMapper custom mapper function type.
+type RecordMapper func(value Record) Record
+
+// RecordFilter custom filter function type.
+type RecordFilter func(value Record) bool
+
+// RecordReducer custom reducer function type.
+type RecordReducer func(a, b interface{}) interface{}
+
+// ParseCSV csv parser function.
+type ParseCSV func(string, string) []string
+
+// SetParser return specific parser according to the csv file separator.
 func SetParser(separator string) ParseCSV {
 	if separator == "," {
 		return func(r, s string) []string {
@@ -42,7 +56,7 @@ func SetParser(separator string) ParseCSV {
 	}
 }
 
-// LoadCSV
+// LoadCSV load csv file and convert each row and cell.
 func (csv *CSV) LoadCSV(filePath string, separator string, startHeader int) error {
 	file, err := os.Open(filePath)
 	if err != nil {
@@ -62,7 +76,7 @@ func (csv *CSV) LoadCSV(filePath string, separator string, startHeader int) erro
 		} else if rowidx == startHeader {
 			csv.Header = myParser(scanner.Text(), separator)
 			csv.HeaderNum = len(csv.Header)
-			rowidx ++
+			rowidx++
 			continue
 
 		} else {
@@ -79,11 +93,12 @@ func (csv *CSV) LoadCSV(filePath string, separator string, startHeader int) erro
 		}
 	}
 	csv.RowNum = rowidx - (startHeader + 1)
-	csv.index = INVALID_INT_VAL
+	csv.index = InvalidIntVal
 
 	return nil
 }
 
+// NextRow iterate method of CSV
 func (csv *CSV) NextRow() (record Record, ok bool) {
 	csv.index++
 	if csv.index >= csv.RowNum {
@@ -92,6 +107,7 @@ func (csv *CSV) NextRow() (record Record, ok bool) {
 	return csv.Records[csv.index], true
 }
 
+// Map 'CSV's 'map' function of FP
 func (csv *CSV) Map(mapper RecordMapper) *CSV {
 	newRecords := make([]Record, 0, csv.RowNum)
 	for _, r := range csv.Records {
@@ -99,13 +115,14 @@ func (csv *CSV) Map(mapper RecordMapper) *CSV {
 	}
 
 	return &CSV{
-		index:     INVALID_INT_VAL,
+		index:     InvalidIntVal,
 		HeaderNum: csv.HeaderNum,
 		RowNum:    csv.RowNum,
 		Header:    csv.Header,
 		Records:   newRecords}
 }
 
+// Filter 'CSV's 'filter' function of FP
 func (csv *CSV) Filter(filter RecordFilter) *CSV {
 	newRecords := make([]Record, 0, csv.HeaderNum)
 	rowNum := 0
@@ -116,13 +133,14 @@ func (csv *CSV) Filter(filter RecordFilter) *CSV {
 		}
 	}
 	return &CSV{
-		index:     INVALID_INT_VAL,
+		index:     InvalidIntVal,
 		HeaderNum: csv.HeaderNum,
 		RowNum:    rowNum,
 		Header:    csv.Header,
 		Records:   newRecords}
 }
 
+// Reduce 'CSV's 'Reduce' function of FP
 func (csv *CSV) Reduce(identity interface{}, reducer RecordReducer) interface{} {
 	res := identity
 	for _, record := range csv.Records {
