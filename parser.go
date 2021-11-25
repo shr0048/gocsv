@@ -4,6 +4,7 @@ import (
 	"strings"
 )
 
+// ParseLine parse csv row bracketed as double quotation marks(like: ["cell"]) format
 func ParseLine(row []string, separator string) []string {
 	var findComma = 0
 	var substr string
