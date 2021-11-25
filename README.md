@@ -1,3 +1,5 @@
+[![Go Report Card](https://goreportcard.com/badge/github.com/shr0048/gocsv)](https://goreportcard.com/report/github.com/shr0048/gocsv)
+
 # GoCsv
 
 GoCsv is a library written in pure Go to use csv data more comfortable
